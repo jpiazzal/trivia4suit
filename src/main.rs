@@ -1,8 +1,12 @@
 mod domain;
 
 use domain::question::Question;
+use reqwest::Result;
 
-fn main() {
+
+#[tokio::main]
+async fn main() {
+
     let question = Question {
         title: String::from("My super question , is Joël smart ?"),
         answer: String::from("NO"),
@@ -16,4 +20,20 @@ fn main() {
     } else {
         println!("Answer incorrect")
     }
+
+
+    match get_questions().await {
+        Ok(response) => { println!("{}", response)}
+        _ => { println!("ERRRRRROOOOR")}
+    }
+}
+
+
+async fn get_questions() -> Result<(String)> {
+    let body = reqwest::get("https://opentdb.com/api.php?amount=10")
+        .await?
+        .text()
+        .await?;
+
+    Ok((body))
 }

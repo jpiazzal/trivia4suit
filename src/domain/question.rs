@@ -6,7 +6,11 @@ pub struct Question {
 }
 
 impl Question {
+
     pub fn validate(&self, proposition: String) -> bool {
         return self.answer == proposition;
     }
+
+
+
 }

@@ -6,7 +6,7 @@ pub struct Question {
 }
 
 impl Question {
-    fn validate(&self, proposition: String) -> bool {
+    pub fn validate(&self, proposition: String) -> bool {
         return self.answer == proposition;
     }
 }

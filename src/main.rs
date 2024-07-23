@@ -1,24 +1,15 @@
+mod domain;
+
+use domain::question::Question;
+
 fn main() {
+  let question = Question {
+    title: String::from("My super question , is joel smart ?"),
+    answer: String::from("NO"),
+    category: String::from("person"),
+    propositions: vec![String::from("YES")],
+  };
 
 }
 
-fn is_palindrome(word: String) -> bool {
-  let reversed: String = word.chars().rev().collect();
-  return word == reversed;
-}
-
-#[cfg(test)]
-mod tests {
-  use super::*;
-
-  #[test]
-  fn it_works() {
-      assert_eq!(is_palindrome(String::from("kayak")), true);
-  }
-
-  #[test]
-  fn it_not_works() {
-      assert_eq!(is_palindrome(String::from("toto")), false);
-  }
-}
 

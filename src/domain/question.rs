@@ -1,8 +1,8 @@
-struct Question {
-    title: String,
-    category: String,
-    propositions: Vec<String>,
-    answer: String,
+pub struct Question {
+    pub title: String,
+    pub category: String,
+    pub propositions: Vec<String>,
+    pub answer: String,
 }
 
 impl Question {
